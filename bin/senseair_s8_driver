@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+
+import rospy
+
+from std_msgs.msg import Float32
+
+from hector_senseair_s8_driver.sense_air_device import SenseAirDevice
+
+if __name__ == '__main__':
+	rospy.init_node('hector_senseair_s8_driver')
+
+	pub = rospy.Publisher('co2', Float32, queue_size=10)
+
+	device = SenseAirDevice()
+
+	if not device.connect("/dev/ttyUSB0"):
+		exit()
+	device.getVendor()
+
+	rate = rospy.Rate(10) # 10hz
+
+	while not rospy.is_shutdown():
+
+		pub.publish(device.readCO2())
+
+		print device.readTemperature()
+
+		rate.sleep()

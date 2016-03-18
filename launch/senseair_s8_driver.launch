@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+
+<launch>
+
+<node name="senseair_s8_driver" pkg="hector_senseair_s8_driver" type="senseair_s8_driver" output="screen" />
+
+</launch>
