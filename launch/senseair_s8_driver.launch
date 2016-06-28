@@ -2,6 +2,8 @@
 
 <launch>
 
-<node name="senseair_s8_driver" pkg="hector_senseair_s8_driver" type="senseair_s8_driver" output="screen" />
+  <node name="senseair_s8_driver" pkg="hector_senseair_s8_driver" type="senseair_s8_driver" respawn="true" output="screen" >
+    		<remap from="co2" to="co2/front" />
+  </node>
 
 </launch>

@@ -13,7 +13,7 @@ if __name__ == '__main__':
 
 	device = SenseAirDevice()
 
-	if not device.connect("/dev/ttyUSB0"):
+	if not device.connect("/dev/senseair"):
 		exit()
 	device.getVendor()
 
@@ -23,6 +23,6 @@ if __name__ == '__main__':
 
 		pub.publish(device.readCO2())
 
-		print device.readTemperature()
+		#print device.readTemperature()
 
 		rate.sleep()
