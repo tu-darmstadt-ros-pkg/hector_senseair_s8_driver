@@ -45,7 +45,7 @@ class SenseAirDevice(object):
 		rq = ReadDeviceInformationRequest(read_code=4, object_id=objectId, unit=0xFE)
 		#rospy.loginfo("encoded: %h", encoded[0])
 		rr = self.client.execute(rq)
-		print rr
+		print(rr)
 
 		return ""
 		if rr is None:
@@ -69,7 +69,7 @@ class SenseAirDevice(object):
 	def getVendor(self):
 
 		vendor = self.getDeviceIdentification(0)
-		print vendor
+		print(vendor)
 
 	def readCO2(self):
 		response = self.client.read_input_registers(address=3, count=1, unit=0xFE )
